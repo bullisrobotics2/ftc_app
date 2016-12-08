@@ -14,27 +14,44 @@ package org.firstinspires.ftc.teamcode;
 @TeleOp (name = "TeleOp Stuff", group = "TeleOp Stuff")
 public class TeleOp2 extends LinearOpMode {
 
-        DcMotor treadLeft;
-        DcMotor treadRight;
+    DcMotor treadLeft;
+    DcMotor treadRight;
+    DcMotor Pinball;
+    long wait2 = 2000;
 
+    public void runOpMode() throws InterruptedException {
+        treadLeft = hardwareMap.dcMotor.get("treadLeft");
+        treadRight = hardwareMap.dcMotor.get("treadRight");
+        Pinball = hardwareMap.dcMotor.get("Pinball");
 
-        public void runOpMode() throws InterruptedException {
-            treadLeft = hardwareMap.dcMotor.get("treadLeft");
-            treadRight = hardwareMap.dcMotor.get("treadRight");
+        treadLeft.setDirection(DcMotorSimple.Direction.REVERSE);
 
-            treadLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+        waitForStart();
 
-            waitForStart();
+        while (opModeIsActive()) {
 
-            while (opModeIsActive()) {
+            treadLeft.setPower(-gamepad1.left_stick_y);
+            treadRight.setPower(-gamepad1.right_stick_y);
+            Pinball.setPower(-gamepad1.right_trigger);
+            treadLeft.setPower(-gamepad2.left_stick_y);
+            treadRight.setPower(-gamepad2.right_stick_y);
+            Pinball.setPower(-gamepad2.right_trigger);
 
-                treadLeft.setPower(-gamepad1.left_stick_y);
-                treadRight.setPower(-gamepad1.right_stick_y);
-
-                idle();
-            }
+            idle();
         }
     }
+
+    public void particleLauncher() {
+        try {
+            if (-gamepad1.right_trigger == 1 || -gamepad2.right_trigger == 1) {
+                Pinball.setPower(1);
+                wait(2000);
+            }
+        }
+        catch (InterruptedException ex) {
+        }
+    }
+}
 
 
 
