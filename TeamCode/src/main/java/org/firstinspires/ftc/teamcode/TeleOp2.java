@@ -17,7 +17,6 @@ public class TeleOp2 extends LinearOpMode {
     DcMotor treadLeft;
     DcMotor treadRight;
     DcMotor Pinball;
-    long wait2 = 2000;
 
     public void runOpMode() throws InterruptedException {
         treadLeft = hardwareMap.dcMotor.get("treadLeft");
@@ -44,7 +43,7 @@ public class TeleOp2 extends LinearOpMode {
     public void particleLauncher() {
         try {
             if (-gamepad1.right_trigger == 1 || -gamepad2.right_trigger == 1) {
-                Pinball.setPower(1);
+                Pinball.setPower(50);
                 wait(2000);
             }
         }
