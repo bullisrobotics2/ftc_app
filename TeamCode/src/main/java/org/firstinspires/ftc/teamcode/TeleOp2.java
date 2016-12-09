@@ -44,7 +44,7 @@ public class TeleOp2 extends LinearOpMode {
         try {
             if (-gamepad1.right_trigger == 1 || -gamepad2.right_trigger == 1) {
                 Pinball.setPower(50);
-                wait(2000);
+                wait(20000);
             }
         }
         catch (InterruptedException ex) {
