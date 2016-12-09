@@ -104,7 +104,11 @@ public class Autonomomus extends LinearOpMode {
 
 
 
-
+/*
+This is our no driver phase and if people need to make edits than we will make edits to the code but this is
+the main idea to what we will be doing
+we will adjust times for the turns and driving but other than that we are pretty much good if this runs.
+ */
 
 
 
