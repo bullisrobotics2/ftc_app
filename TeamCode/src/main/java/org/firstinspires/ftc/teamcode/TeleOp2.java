@@ -44,7 +44,7 @@ public class TeleOp2 extends LinearOpMode {
         try {
             if (-gamepad1.right_trigger == 1 || -gamepad2.right_trigger == 1) { //when these buttons are pressed do below
                 Pinball.setPower(50); //sets the motor power
-                wait(20000); //makes the robot wait for the time
+                wait(200000); //makes the robot wait for the time
             }
         }
         catch (InterruptedException ex) { //fixes any interrupted exception errors

@@ -52,10 +52,10 @@ public class Autonomomus extends LinearOpMode {
         if (this.time > 7 && this.time < 17){
             DriveForward();
         }
-        if (this.time > 17 && this.time <= 18){
+        if (this.time > 17 && this.time < 18){
             Stop();
         }
-        if (this.time >= 18 && this.time < 28) {
+        if (this.time > 18 && this.time < 28) {
             particleLauncher();
         }
         if (this.time > 28 && this.time <= 30){
@@ -64,14 +64,7 @@ public class Autonomomus extends LinearOpMode {
     }
 
     public void particleLauncher() { //sets the method for the particle launcher
-        try {
-            if (-gamepad1.right_trigger == 1 || -gamepad2.right_trigger == 1) { //allows people to access the motor
-                Pinball.setPower(50); //sets the motor's power
-                wait(20000); //delay for this power
-            }
-        }
-        catch (InterruptedException ex) {
-        }
+            Pinball.setPower(1); //sets the motor's power
     }
     public void DriveForward(){
         treadLeft.setPower(1);
