@@ -6,18 +6,14 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorController;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
-
-import java.util.concurrent.SynchronousQueue;
 
 /**
  * Created by pedropetcov on 12/5/16.
  */
-@Autonomous (name = "Autonomous When To Right", group = "Autonomous Right")
-public class Autonomomus extends LinearOpMode {
+@Autonomous (name = "Autonomous When to Left", group = "Autonomous Left")
+public class AutonomomusLeft extends LinearOpMode {
 
     DcMotor treadLeft = null;
     DcMotor treadRight = null;
@@ -42,13 +38,13 @@ public class Autonomomus extends LinearOpMode {
     }
     public void noDriver(){ //creates the method for Autonomous phase
         if (this.time <= 1){
-            TurnRight();
+            TurnLeft();
         }
         if (this.time > 1 && this.time < 5){
             DriveForward();
         }
         if (this.time > 5 && this.time < 7){
-            TurnRight();
+            TurnLeft();
         }
         if (this.time > 7 && this.time < 17){
             DriveForward();
@@ -65,7 +61,8 @@ public class Autonomomus extends LinearOpMode {
     }
 
     public void particleLauncher() { //sets the method for the particle launcher
-            Pinball.setPower(0.5); //sets the motor's power
+
+        Pinball.setPower(0.5); //sets the motor's power
     }
     public void DriveForward(){
         treadLeft.setPower(1);

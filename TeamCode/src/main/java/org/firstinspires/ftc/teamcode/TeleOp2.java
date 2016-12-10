@@ -11,7 +11,7 @@ package org.firstinspires.ftc.teamcode;
 /**
  * Created by pedropetcov on 12/5/16.
  */
-@TeleOp (name = "TeleOp Stuff", group = "TeleOp Stuff")
+@TeleOp (name = "DO NOT USE", group = "DO NOT USE")
 public class TeleOp2 extends LinearOpMode {
 
     DcMotor treadLeft; //creates a motor for the left tread
@@ -28,15 +28,19 @@ public class TeleOp2 extends LinearOpMode {
         waitForStart();
 
         while (opModeIsActive()) {
-
-            treadLeft.setPower(-gamepad1.left_stick_y);
-            treadRight.setPower(-gamepad1.right_stick_y);
-            Pinball.setPower(-gamepad1.right_trigger);
-            treadLeft.setPower(-gamepad2.left_stick_y);
-            treadRight.setPower(-gamepad2.right_stick_y);
-            Pinball.setPower(-gamepad2.right_trigger);
-            //sets the controls for the motors so they can control the robot
-            idle();
+            try {
+                treadLeft.setPower(-gamepad1.left_stick_y);
+                treadRight.setPower(-gamepad1.right_stick_y);
+                Pinball.setPower(-gamepad1.right_trigger);
+                treadLeft.setPower(-gamepad2.left_stick_y);
+                treadRight.setPower(-gamepad2.right_stick_y);
+                Pinball.setPower(-gamepad2.right_trigger);
+                //sets the controls for the motors so they can control the robot
+                wait(30);
+                idle();
+            }
+            catch (InterruptedException ex){
+            }
         }
     }
 
