@@ -21,12 +21,12 @@ public class Autonomomus extends LinearOpMode {
 
     DcMotor treadLeft = null;
     DcMotor treadRight = null;
-    DcMotor Pinball = null;
+    DcMotor pinball = null;
 
     public void runOpMode() throws InterruptedException {
         treadLeft = hardwareMap.dcMotor.get("treadLeft");
         treadRight = hardwareMap.dcMotor.get("treadRight");
-        Pinball = hardwareMap.dcMotor.get("Pinball");
+        pinball = hardwareMap.dcMotor.get("Pinball");
 
 
         treadLeft.setDirection(DcMotorSimple.Direction.REVERSE);
@@ -66,7 +66,7 @@ public class Autonomomus extends LinearOpMode {
     public void particleLauncher() { //sets the method for the particle launcher
         try {
             if (-gamepad1.right_trigger == 1 || -gamepad2.right_trigger == 1) { //allows people to access the motor
-                Pinball.setPower(50); //sets the motor's power
+                pinball.setPower(50); //sets the motor's power
                 wait(20000); //delay for this power
             }
         }
