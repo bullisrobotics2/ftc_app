@@ -31,11 +31,14 @@ public class TeleOptest extends LinearOpMode {
 
         while (opModeIsActive()) {
 
-            treadLeft.setPower(-gamepad1.left_stick_y);
-            treadRight.setPower(-gamepad1.right_stick_y);
+            treadLeft.setPower(-gamepad1.right_stick_y);
+            treadRight.setPower(-gamepad1.left_stick_y);
             Pinball.setPower(-gamepad1.right_trigger);
             //sets the controls for the motors so they can control the robot
             idle();
+
+            treadLeft.setDirection(DcMotorSimple.Direction.FORWARD);
+            treadRight.setDirection(DcMotorSimple.Direction.REVERSE);
         }
     }
 
