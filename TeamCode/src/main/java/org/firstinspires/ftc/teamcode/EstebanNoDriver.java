@@ -4,14 +4,14 @@ package org.firstinspires.ftc.teamcode;
  * Created by Parker on 12/12/2016.
  */
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
-@TeleOp (name = "TeleOp Phase", group = "TeleOp Comp Edition")
-public class Esteban extends LinearOpMode{
+@Autonomous(name = "Autonomous Phase", group = "Autonomous Comp Edition")
+public class EstebanNoDriver extends LinearOpMode{
 
     DcMotor frontRight;
     DcMotor frontLeft;
@@ -39,4 +39,17 @@ public class Esteban extends LinearOpMode{
             idle();
         }
     }
+    public void Forward(){
+    }
+    public void Backward(){
+    }
+    public void Right(){
+    }
+    public void Left(){
+    }
+    public void rightDiagonal(){
+    }
+    public void leftDiagonalForward() {
+    }
 }
+
