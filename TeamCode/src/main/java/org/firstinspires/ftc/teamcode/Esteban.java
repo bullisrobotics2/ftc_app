@@ -31,12 +31,28 @@ public class Esteban extends LinearOpMode{
 
         while (opModeIsActive()){
 
-            frontLeft.setPower(gamepad1.left_stick_x);
-            frontRight.setPower(gamepad1.right_stick_x);
-            backLeft.setPower(gamepad1.left_stick_y);
-            backRight.setPower(gamepad1.right_stick_y);
+            frontLeft.setPower(-gamepad1.left_stick_x);
+            frontRight.setPower(-gamepad1.right_stick_x);
+            backLeft.setPower(-gamepad1.left_stick_y);
+            backRight.setPower(-gamepad1.right_stick_y);
 
             idle();
+        }
+    }
+    public void strafeRight(){
+        if (gamepad1.right_bumper == true){
+            frontRight.setPower(-1);
+            backRight.setPower(1);
+            frontLeft.setPower(1);
+            backLeft.setPower(-1);
+        }
+    }
+    public void stradeLeft(){
+        if (gamepad1.left_bumper == true){
+            frontRight.setPower(1);
+            backRight.setPower(-1);
+            frontLeft.setPower(-1);
+            backLeft.setPower(1);
         }
     }
 }
