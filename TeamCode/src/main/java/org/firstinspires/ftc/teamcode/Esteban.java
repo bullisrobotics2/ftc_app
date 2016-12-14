@@ -29,6 +29,8 @@ public class Esteban extends LinearOpMode{
         backLeft = hardwareMap.dcMotor.get("backLeft");
         backRight = hardwareMap.dcMotor.get("backRight");
         shooterWheel = hardwareMap.dcMotor.get("shooterWheel");
+        collecterBottom = hardwareMap.dcMotor.get("collecterBottom");
+        collecterTop = hardwareMap.dcMotor.get("collecterTop");
 
         frontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
         backLeft.setDirection(DcMotorSimple.Direction.REVERSE);
