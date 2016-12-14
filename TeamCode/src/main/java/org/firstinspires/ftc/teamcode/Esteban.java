@@ -18,6 +18,7 @@ public class Esteban extends LinearOpMode{
     DcMotor backRight;
     DcMotor backLeft;
     DcMotor shooterWheel;
+    DcMotor shooterWheel2;
     DcMotor collecterBottom;
     DcMotor collecterTop;
     final static double SPEED = 1;
@@ -29,6 +30,7 @@ public class Esteban extends LinearOpMode{
         backLeft = hardwareMap.dcMotor.get("backLeft");
         backRight = hardwareMap.dcMotor.get("backRight");
         shooterWheel = hardwareMap.dcMotor.get("shooterWheel");
+        shooterWheel2 = hardwareMap.dcMotor.get("shooterWheel2");
         collecterBottom = hardwareMap.dcMotor.get("collecterBottom");
         collecterTop = hardwareMap.dcMotor.get("collecterTop");
 
