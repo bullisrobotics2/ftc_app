@@ -17,12 +17,18 @@ public class Esteban extends LinearOpMode{
     DcMotor frontLeft;
     DcMotor backRight;
     DcMotor backLeft;
+    DcMotor shooterWheel;
+    DcMotor collecterBottom;
+    DcMotor collecterTop;
+    final static double SPEED = 1;
+
 
     public void runOpMode() throws InterruptedException{
         frontLeft = hardwareMap.dcMotor.get("frontLeft");
         frontRight = hardwareMap.dcMotor.get("frontRight");
         backLeft = hardwareMap.dcMotor.get("backLeft");
         backRight = hardwareMap.dcMotor.get("backRight");
+        shooterWheel = hardwareMap.dcMotor.get("shooterWheel");
 
         frontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
         backLeft.setDirection(DcMotorSimple.Direction.REVERSE);
@@ -30,6 +36,7 @@ public class Esteban extends LinearOpMode{
         waitForStart();
 
         while (opModeIsActive()){
+            collecters();
             if(gamepad1.right_bumper == true) {
                 strafeRight();
             }
@@ -60,5 +67,14 @@ public class Esteban extends LinearOpMode{
             frontLeft.setPower(-1);
             backLeft.setPower(1);
         }
+    }
+    public void shooter(){
+        if (gamepad1.right_trigger == 1){
+            shooterWheel.setPower(1);
+        }
+    }
+    public void collecters(){
+        collecterBottom.setPower(SPEED);
+        collecterTop.setPower(SPEED);
     }
 }
