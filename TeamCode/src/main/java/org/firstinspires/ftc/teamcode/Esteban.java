@@ -5,7 +5,6 @@ package org.firstinspires.ftc.teamcode;
  */
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
@@ -38,18 +37,17 @@ public class Esteban extends LinearOpMode{
         waitForStart();
 
         while (opModeIsActive()){
-            collecters();
             if(gamepad1.right_bumper == true) {
                 strafeRight();
             }
             else if(gamepad1.left_bumper == true) {
                 strafeLeft();
             }else {
-                frontLeft.setPower(-gamepad1.left_stick_y);
-                frontRight.setPower(-gamepad1.right_stick_y);
+                frontLeft.setPower(-gamepad1.left_stick_x);
+                frontRight.setPower(-gamepad1.right_stick_x);
                 backLeft.setPower(-gamepad1.left_stick_y);
                 backRight.setPower(-gamepad1.right_stick_y);
-
+                collecters();
             }
             idle();
         }
@@ -71,7 +69,7 @@ public class Esteban extends LinearOpMode{
         }
     }
     public void shooter(){
-        if (gamepad1.right_trigger == 1){
+        if (gamepad1.right_trigger == 0.5){
             shooterWheel.setPower(1);
         }
     }
