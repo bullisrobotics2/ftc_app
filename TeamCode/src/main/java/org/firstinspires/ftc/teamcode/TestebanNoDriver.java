@@ -42,11 +42,19 @@ public class TestebanNoDriver extends LinearOpMode{
             strafeLeft();
             }
             if (this.time > 2 && this.time < 3) {
+            shooter();
             }
-
+            if (this.time > 3 && this.time < 10){
+             DriveForward();
             }
-            idle();
+            if (this.time > 10 && this.time < 15){
+                turnLeft();
+            }
+            if (this.time >15 && this.time < 20){
+                DriveForward();
+            }
         }
+            idle();
     }
     public void strafeRight(){
         if (gamepad1.right_bumper == true){
@@ -105,5 +113,17 @@ public class TestebanNoDriver extends LinearOpMode{
     public void collecters(){
         collecterBottom.setPower(SPEED);
         collecterTop.setPower(SPEED);
+    }
+    public void DriveForward(){
+        frontLeft.setPower(1);
+        frontRight.setPower(1);
+        backLeft.setPower(1);
+        backRight.setPower(1);
+    }
+    public void turnLeft(){
+        frontRight.setPower(-1);
+        backRight.setPower(-1);
+        frontLeft.setPower(1);
+        backRight.setPower(1);
     }
 }
