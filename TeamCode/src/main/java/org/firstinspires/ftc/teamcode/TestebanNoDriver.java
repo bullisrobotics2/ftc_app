@@ -4,13 +4,14 @@ package org.firstinspires.ftc.teamcode;
  * Created by Parker on 12/12/2016.
  */
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 
-@TeleOp (name = "TeleOp Phase", group = "TeleOp Comp Edition")
+@Autonomous(name = "Autonomous Left", group = "Autonomous Comp Edition")
 public class TestebanNoDriver extends LinearOpMode{
 
 
@@ -124,6 +125,12 @@ public class TestebanNoDriver extends LinearOpMode{
         frontRight.setPower(-1);
         backRight.setPower(-1);
         frontLeft.setPower(1);
+        backLeft.setPower(1);
+    }
+    public void turnRight(){
+        frontRight.setPower(1);
         backRight.setPower(1);
+        frontLeft.setPower(-1);
+        backLeft.setPower(-1);
     }
 }
