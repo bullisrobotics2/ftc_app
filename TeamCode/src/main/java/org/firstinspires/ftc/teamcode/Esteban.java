@@ -34,36 +34,45 @@ public class Esteban extends LinearOpMode{
 
         frontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
         backLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+        collecterTop.setDirection(DcMotorSimple.Direction.REVERSE);
 
         waitForStart();
 
-        while (opModeIsActive()){
-            if(gamepad1.right_bumper == true) {
-                strafeRight();
+        while (opModeIsActive()) {
+            if (gamepad1.dpad_up == true){
+                collecterBottom.setPower(-1);
+                collecterTop.setPower(1);
             }
-            else if(gamepad1.left_bumper == true) {
-                strafeLeft();}
-
-                else if (gamepad1.x == true) {
-                        strafeLeftDiagonal();
-                    }
-                else if (gamepad1.b == true) {
-                        strafeRightDiagonal();
-                    }
-                else if (gamepad1.a == true) {
+            if(gamepad1.right_trigger == 1){
+                shooter();
+            }
+            if(gamepad1.dpad_down == true){
+                collecterBottom.setPower(1);
+                collecterTop.setPower(-1);
+            }
+            if (gamepad1.right_bumper == true) {
+                strafeRight();
+            } else if (gamepad1.left_bumper == true) {
+                strafeLeft();
+            }
+            if (gamepad1.x == true) {
+                strafeLeftDiagonal();
+            }
+            if (gamepad1.b == true) {
+                strafeRightDiagonal();
+            }
+            if (gamepad1.a == true) {
                 strafeLeftDiagonalBackwards();
             }
-                else if (gamepad1.y == true) {
-                        strafeRightDiagonalBackwards();
-                    }
-            else {
+            if (gamepad1.y == true) {
+                strafeRightDiagonalBackwards();
+            } else {
                 frontLeft.setPower(-gamepad1.left_stick_x);
                 frontRight.setPower(-gamepad1.right_stick_x);
                 backLeft.setPower(-gamepad1.left_stick_y);
                 backRight.setPower(-gamepad1.right_stick_y);
-                collecters();
+                idle();
             }
-            idle();
         }
     }
     public void strafeRight(){
@@ -119,9 +128,5 @@ public class Esteban extends LinearOpMode{
         if (gamepad1.right_trigger == 0.5){
             shooterWheel.setPower(1);
         }
-    }
-    public void collecters(){
-        collecterBottom.setPower(SPEED);
-        collecterTop.setPower(SPEED);
     }
 }

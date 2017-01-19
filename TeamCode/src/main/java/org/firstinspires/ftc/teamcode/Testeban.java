@@ -22,7 +22,6 @@ public class Testeban extends LinearOpMode{
     DcMotor shooterWheel;
     DcMotor collecterBottom;
     DcMotor collecterTop;
-    final static double SPEED = 1;
     float right = -gamepad1.left_stick_y;
     float left = -gamepad1.left_stick_x;
 
@@ -59,14 +58,22 @@ public class Testeban extends LinearOpMode{
             if (gamepad1.right_bumper == true){
                 strafeRight();
             }
-            if (gamepad1.left_bumper == true){
+            if (gamepad1.left_bumper == true) {
                 strafeLeft();
+            }
+            if (gamepad1.dpad_up == true){
+                collectersUp();
+            if (gamepad1.dpad_down == true){
+                collectersDown();
+            }
+            if (gamepad1.right_trigger == 1){
+                shooter();
+            }
             }else{
                 frontLeft.setPower(-gamepad1.left_stick_x);
                 frontRight.setPower(-gamepad1.right_stick_x);
                 backLeft.setPower(-gamepad1.left_stick_y);
                 backRight.setPower(-gamepad1.right_stick_y);
-                collecters();
             }
             idle();
         }
@@ -125,8 +132,12 @@ public class Testeban extends LinearOpMode{
             shooterWheel.setPower(1);
         }
     }
-    public void collecters(){
-        collecterBottom.setPower(SPEED);
-        collecterTop.setPower(SPEED);
+    public void collectersUp(){
+        collecterBottom.setPower(1);
+        collecterTop.setPower(-1);
+    }
+    public void collectersDown(){
+        collecterBottom.setPower(-1);
+        collecterTop.setPower(1);
     }
 }
