@@ -19,26 +19,26 @@ public class Testeban extends LinearOpMode{
     DcMotor frontLeft;
     DcMotor backRight;
     DcMotor backLeft;
-    DcMotor shooterWheel;
-    DcMotor collecterBottom;
-    DcMotor collecterTop;
+    //DcMotor shooterWheel;
+    //DcMotor collecterBottom;
+    //DcMotor collecterTop;
     float right = -gamepad1.left_stick_y;
     float left = -gamepad1.left_stick_x;
 
 
-    public void runOpMode() throws InterruptedException{
+    public void runOpMode() throws InterruptedException {
         frontLeft = hardwareMap.dcMotor.get("frontLeft");
         frontRight = hardwareMap.dcMotor.get("frontRight");
         backLeft = hardwareMap.dcMotor.get("backLeft");
         backRight = hardwareMap.dcMotor.get("backRight");
-        shooterWheel = hardwareMap.dcMotor.get("shooterWheel");
-        collecterBottom = hardwareMap.dcMotor.get("collecterBottom");
-        collecterTop = hardwareMap.dcMotor.get("collecterTop");
+        //shooterWheel = hardwareMap.dcMotor.get("shooterWheel");
+        //collecterBottom = hardwareMap.dcMotor.get("collecterBottom");
+        //collecterTop = hardwareMap.dcMotor.get("collecterTop");
 
         frontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
         backLeft.setDirection(DcMotorSimple.Direction.REVERSE);
-        right = Range.clip(right, -1,1);
-        left = Range.clip(left, -1,1);
+        right = Range.clip(right, -1, 1);
+        left = Range.clip(left, -1, 1);
 
         waitForStart();
 
@@ -55,21 +55,21 @@ public class Testeban extends LinearOpMode{
             if (right < 0 && right > -1 && left < 1 && left > 0) {
                 strafeRightDiagonalBackwards();
             }
-            if (gamepad1.right_bumper == true){
+            if (gamepad1.right_bumper == true) {
                 strafeRight();
-            }
-            if (gamepad1.left_bumper == true) {
+            } else if (gamepad1.left_bumper == true) {
                 strafeLeft();
             }
-            if (gamepad1.dpad_up == true){
+            /*if (gamepad1.dpad_up == true) {
                 collectersUp();
-            if (gamepad1.dpad_down == true){
-                collectersDown();
-            }
-            if (gamepad1.right_trigger == 1){
-                shooter();
-            }
-            }else{
+                if (gamepad1.dpad_down == true) {
+                    collectersDown();
+                }
+                if (gamepad1.right_trigger == 1) {
+                    shooter();
+                }
+                */
+            else {
                 frontLeft.setPower(-gamepad1.left_stick_x);
                 frontRight.setPower(-gamepad1.right_stick_x);
                 backLeft.setPower(-gamepad1.left_stick_y);
@@ -127,10 +127,11 @@ public class Testeban extends LinearOpMode{
         }
     }
 
-    public void shooter(){
+    /*public void shooter(){
         if (gamepad1.right_trigger == 0.5){
             shooterWheel.setPower(1);
         }
+
     }
     public void collectersUp(){
         collecterBottom.setPower(1);
@@ -140,4 +141,5 @@ public class Testeban extends LinearOpMode{
         collecterBottom.setPower(-1);
         collecterTop.setPower(1);
     }
+    */
 }
